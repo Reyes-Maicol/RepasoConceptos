@@ -10,8 +10,57 @@
             font-weight: bold;
         }
     </style>
+    <script>
+        function guardarDatosLocalStorage(){
+            const usuario = document.getElementById("usuario").value;
+            const emaiil = document.getElementById("email").value;
+            const contrasena = document.getElementById("contrasena").value;
+
+            localStorage.setItem( "usuario",usuario);
+            localStorage.setItem( "email",emaiil);
+            localStorage.setItem( 'contrasena', contrasena);
+        }
+
+        function verDatosLocalStorage(){
+            const user = localStorage.getItem("usuario");
+            const mail = localStorage.getItem("email");
+            const pass= localStorage.getItem("contrasena");
+
+            document.getElementById("resultado").innerHTML = `Nombre ${user} <br> Correo: ${mail} <br> Contraseña: ${pass}`
+        }
+
+        function guardarDatosSessionStorage(){
+            const usuario = document.getElementById("usuario").value;
+            const emaiil = document.getElementById("email").value;
+            const contrasena = document.getElementById("contrasena").value;
+
+            sessionStorage.setItem( "usuario",usuario);
+            sessionStorage.setItem( "email",emaiil);
+            sessionStorage( 'contrasena', contrasena);
+        }
+
+        function verDatosLocalStorage(){
+            const user = sessionStorage.getItem("usuario");
+            const mail = sessionStorage.getItem("email");
+            const pass= sessionStorage.getItem("contrasena");
+
+            document.getElementById("resultado").innerHTML = `Nombre ${user} <br> Correo: ${mail} <br> Contraseña: ${pass}`
+        }
+    </script>
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="#seccion1">FORMULARIOS</a></li>
+            <li><a href="#seccion2">FUNCIONALIDAD JS</a></li>
+            <li><a href="#seccion4">TABLAS</a></li>
+            <li><a href="#seccion5">TARGET</a></li>
+            <li><a href="#seccion6">AUDIO</a></li>
+            <li><a href="#seccion7">VIDEO</a></li>
+            <li><a href="#seccion8">Progreso</a></li>
+        </ul>
+    </nav>
     <!--Comentarios-->
     <p align="center">TIPOS DE PARRAFOS</p>
     <hr>
@@ -42,21 +91,24 @@
     <hr>
     <a href="https://talentotech.gov.co/portal">Talento Tech</a>
     <hr>
-    <p align="center">ATRIBUTOS TARGET</p>
-    <hr>
-    <a href="https://talentotech.gov.co/portal" target="_self">Talento Tech <strong>SELF</strong></a><!--_SELF: El documento abrira en la misma pestaña-->
-    <br>
-    <a href="https://talentotech.gov.co/portal" target="_blank">Talento Tech <strong>BLANK</strong></a> <!--_blank: Se abrira en una nueva pestaña-->
-    <br>
-    <a href="https://talentotech.gov.co/portal" target="_parent">Talento Tech <strong>PARENT</strong></a> <!--_parent:El documento se abrira en el marco padre, si no tiene igual a _self-->
-    <br>
-    <a href="https://talentotech.gov.co/portal" target="_top">Talento Tech <stron>Top</stron></a> <!--_top:El documento se abrira en el marco padre, si no tiene igual a _self-->
-    <br>
-    <iframe name="mm" src="/miMarco.html" width="500px" height="200px"></iframe>
-    <br>
-    <a href="https://talentotech.gov.co/portal" target="mm">Talento Tech <strong>En Iframe</strong></a><!--_SELF: El documento abrira en la misma pestaña-->
-    <br>
-    <hr>
+
+    <section id="seccion5">
+        <p align="center">ATRIBUTOS TARGET</p>
+        <hr>
+        <a href="https://talentotech.gov.co/portal" target="_self">Talento Tech <strong>SELF</strong></a><!--_SELF: El documento abrira en la misma pestaña-->
+        <br>
+        <a href="https://talentotech.gov.co/portal" target="_blank">Talento Tech <strong>BLANK</strong></a> <!--_blank: Se abrira en una nueva pestaña-->
+        <br>
+        <a href="https://talentotech.gov.co/portal" target="_parent">Talento Tech <strong>PARENT</strong></a> <!--_parent:El documento se abrira en el marco padre, si no tiene igual a _self-->
+        <br>
+        <a href="https://talentotech.gov.co/portal" target="_top">Talento Tech <stron>Top</stron></a> <!--_top:El documento se abrira en el marco padre, si no tiene igual a _self-->
+        <br>
+        <iframe name="mm" src="/miMarco.html" width="500px" height="200px"></iframe>
+        <br>
+        <a href="https://talentotech.gov.co/portal" target="mm">Talento Tech <strong>En Iframe</strong></a><!--_SELF: El documento abrira en la misma pestaña-->
+        <br>
+        <hr>
+    </section>
     <p align="center">LISTAS ORDENADAS</p>
     <ol type="1" start="15">
         <li>Item 1</li>
@@ -76,7 +128,9 @@
         <li>ITEM en lista desordena --5</li>
         <li>ITEM en lista desordena --6</li>
     </ul>
-    <hr>
+
+    <section id="seccion4">
+        <hr>
     <p align="center">TABLAS</p>
     <table><!--Se inicia la tabla-->
         <tr><!--Define una fila--></tr>
@@ -109,48 +163,97 @@
             <td>Medellin</td>
         </tr>
     </table>
-    <hr>
-    <p align="center">ETIQUETA div</p>  
+    </section>
+        <hr>
+        <p align="center">ETIQUETA div</p>  
 
-    <div style="background: orange; color: rgb(32, 67, 120)">
-        <p>Elemento contenido en etiqueta div</p>
-        <img src="/NuevoLogoSFondo.png" border="3%" width="20%" height="20%" alt="prueba">
+        <div style="background: orange; color: rgb(32, 67, 120)">
+            <p>Elemento contenido en etiqueta div</p>
+            <img src="/NuevoLogoSFondo.png" border="3%" width="20%" height="20%" alt="prueba">
 
-    </div>
-    
-    <br>
-    <p align="center">INICIAR SCRIPT - JAVASCRIPT</p>
-    <hr>
-    <p>Texto <span id="cambiar" class="resaltar">resaltado </span>en una oracion</p>
-
-    <script>
-        document.getElementById("cambiar").addEventListener("click", function(){
-            this.style.color="blue";
-        })
-    </script>
-
-    <hr>
-    <p>FORMULARIOS</p>
-    <br>
-
-    <form action="/login/auth" method="post">
-        <label>Usuario</label>
-        <input type="text" id="usuario" name="usuario">
-        <br><br>
-        <label>Email</label>
-        <input type="email" id="email" name="email">
-        <br><br>
-        <label>Contraseña</label>
-        <input type="password" id="contrasena" name="contrasena">
-        <br><br>
-        <label>Mensaje</label>
-        <textarea id="msg" name="msg" rows="4" cols="50"></textarea>
+        </div>
+        
+    <section id="seccion2">
         <br>
-        <label>Genero</label>
-        <input type="radio" name="genero" value="M">Masculino
-        <input type="radio" name="genero" value="F">Femenino
+        <p align="center">INICIAR SCRIPT - JAVASCRIPT</p>
+        <hr>
+        <p>Texto <span id="cambiar" class="resaltar">resaltado </span>en una oracion</p>
 
-        <input type="submit" value="Enviar">
-    </form>
+        <script>
+            document.getElementById("cambiar").addEventListener("click", function(){
+                this.style.color="blue";
+            })
+        </script>
+        <a href="#">Volver al inicio</a>
+    </section>    
+
+    <section id="seccion1">
+        <hr>
+        <p>FORMULARIOS</p>
+        <br>
+
+        <form>
+            <label>Usuario</label>
+            <input type="text" id="usuario" name="usuario" list="nombres" placeholder="Nombre Usuario" autocomplete="off" required >
+        
+            <datalist id="nombres">
+                <option>Juan</option>
+                <option>Sofia</option>
+                <option>Catalina</option>
+                <option>INES</option>
+            </datalist>
+
+            <br><br>
+            <label>Email</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+            <label>Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena">
+            <br><br>
+            <label>Mensaje</label>
+            <textarea id="msg" name="msg" rows="4" cols="50"></textarea>
+            <br>
+            <label>Genero</label>
+            <input type="radio" name="genero" value="M">Masculino
+            <input type="radio" name="genero" value="F">Femenino
+
+            <input type="submit" value="Enviar">
+            <button onclick="guardarDatosLocalStorage()">Guardar Local Storage</button>
+            <button onclick="verDatosLocalStorage()">Ver Datos Local Storage</button>
+
+            <button onclick="guardarDatosSessionStorage()">Guardar Session Storage</button>
+            <button onclick="verDatosLocalStorage()">Ver Datos Session Storage </button>
+
+        </form>
+
+        <div id="resultado"></div>
+    </section>
+    <br><br>
+    <section id="seccion6">
+        <hr>
+        <p align="center">AUDIO</p>
+        <audio src="" controls >
+            Navegador no soporta etiqueta audio
+        </audio>
+    </section>
+
+    <section id="seccion7">
+        <hr>
+        <p align="center">VIDEO</p>
+        <video controls width="640"  height="400">
+            <source type="video/mp4">
+            Navegador no soporta el video
+        </video>
+        <a href="#0">Regresar al inicio</a>
+    </section>
+
+    <section id="seccion8">
+        <hr>
+        <br>
+        <p align="center">Barra de progreso</p>
+        Status:<progress min="0" max="100" value="67"></progress>
+    </section>
+
+
 </body>
 </html>
